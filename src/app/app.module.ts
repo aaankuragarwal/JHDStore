@@ -1,9 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+
+import { ApiService } from './Services/api.service';
 
 @NgModule({
   declarations: [
@@ -12,6 +17,9 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
+    FormsModule,
+    HttpModule,
     RouterModule.forRoot([
       { path: '', component: AppComponent, children: [
         {path: 'login', component: LoginComponent },
@@ -19,7 +27,9 @@ import { LoginComponent } from './login/login.component';
       ]}
     ]),
   ],
-  providers: [],
+  providers: [
+    ApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
