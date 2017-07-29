@@ -12,12 +12,14 @@ import { LoginComponent } from './login/login.component';
 
 import { ApiService } from './Services/api.service';
 import { ContainerComponent } from './container/container.component';
+import { NewOrderComponent } from './new-order/new-order.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ContainerComponent
+    ContainerComponent,
+    NewOrderComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,9 @@ import { ContainerComponent } from './container/container.component';
     RouterModule.forRoot([
       { path: '', component: AppComponent, children: [
         {path: 'login', component: LoginComponent },
-        {path: 'dashboard', component: ContainerComponent, canActivate: [AuthGuard] },
+        {path: 'dashboard', component: ContainerComponent, canActivate: [AuthGuard] , children: [
+          {path: 'new', component: NewOrderComponent },
+        ]},
         { path: '', redirectTo: 'login', pathMatch: 'full' }
       ]}
     ]),

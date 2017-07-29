@@ -10,12 +10,124 @@ body{
   font-family: 'Roboto' , sans-serif;
 }
 
+label{
+  font-weight: 400;
+}
+
+.custom_select_box {
+  width: 100%;
+
+  .select-wrapper {
+      background-color: #FFF;
+      display: inline-block;
+      position: relative;
+      color: #929292 !important;
+      width: 100%;
+    }
+    .select-wrapper:after {
+      content: "";
+      font-family: 'FontAwesome';
+      position: absolute;
+      top: 14px;
+      right: 10px;
+      z-index: 5;
+      border-left: 7.5px solid transparent;
+      border-right: 7.5px solid transparent;
+      border-top: 7.5px solid #bfbfbf;
+      border-radius: 2px;
+    }
+    select {
+      padding: 7px 50px 7px 8px;
+      -webkit-appearance: none;
+      -ms-appearance: none;
+      -moz-appearance: none;
+      -webkit-appearance:none;
+      appearance: none;
+      border: 1px solid #ddd;
+      background-color: transparent;
+      border-radius: 0;
+      position: relative;
+      cursor: pointer;
+      z-index: 10;
+      color: #58666e;
+      border-radius:3px;
+      width: 100%;
+    }
+    select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #58666e;
+  }
+}
+
+input[type="text"]{
+  border: thin black solid;
+  border-radius: 1px;
+  padding: 6px 12px;
+  width: 100%;
+
+  &:focus{
+    border: thin #23d7e5 solid;
+  }
+}
+
+
 .bg-white{
   background: #FFFFFF;
 }
 
 .v-middle{
   vertical-align: middle !important;
+}
+
+.black_top_border{
+  border: thin black solid;
+}
+
+.block{
+  display: block;
+}
+
+.wrapper-xs{
+  padding: 5px;
+}
+.wrapper-sm{
+  padding: 10px;
+}
+
+.wrapper{
+  padding: 15px;
+}
+
+.p-r-none{
+  padding-right: 0;
+}
+
+.p-l-none{
+  padding-left: 0;
+}
+
+.m-r-none{
+  margin-right: 0;
+}
+
+.m-l-none{
+  margin-left: 0;
+}
+
+.m-t-xs{
+  margin-top: 5px;
+}
+
+.m-t-sm{
+  margin-top: 10px;
+}
+
+.m-t{
+  margin-top: 15px;
+}
+
+.m-t-md{
+  margin-top: 20px;
 }
 
 .text-white{
@@ -55,12 +167,15 @@ body{
     height: 33px;
     width: auto;
     .menu_inner_div{
-
       display: $display_inline_block;
       padding: 11px;
       border-left: thin #333333 solid;
       cursor: pointer;
       float: left;
+
+      &:first-child{
+        margin-left: 10px;
+      }
     }
     .activated_menu_tab_div{
       background: #F5F5F5 !important;
@@ -101,5 +216,97 @@ body{
       fill:#999999;
     }
     color: #888888;
+  }
+}
+
+.filter_main_div{
+  float: left;
+  width: 18%;
+
+
+
+  .filter_inner_main_div{
+    border-right: thin black solid;
+    border-top: thin transparent solid;
+    padding: 0 15px;
+
+    .save_filter_btn{
+      margin: 15px 0;
+      width: 100%;
+      height: 34px;
+      border-radius: 25px;
+      background: skyblue;
+      border: thin skyblue solid;
+      outline: none;
+      color: #FFFFFF;
+      &:hover , &:focus{
+        padding: 0;
+      }
+    }
+  }
+}
+
+.product_master_main_div{
+  width: 82%;
+  float: left;
+
+  .product_master_inner_div{
+    padding: 15px;
+    width: 95%;
+    margin: 15px auto 0 auto;
+
+    .product_master_bottom_border{
+      border-bottom: thin black solid;
+      padding-bottom: 10px;
+    }
+
+    .product_master{
+      font-size: 24px;
+    }
+
+    .product_master_btns{
+      display: inline-block;
+      padding: 5px 15px;
+      color: #FFFFFF;
+      border-radius: 25px;
+      background: skyblue;
+      border: thin skyblue solid;
+      outline: none;
+    }
+
+    .add_product_master_div{
+      border: thin gray solid;
+      padding: 10px 25px;
+
+      label{
+        margin-top: 7px;
+      }
+
+      textarea{
+        padding: 5px 12px;
+        width: 100%;
+        height: 50px;
+        border: thin black solid;
+      }
+
+      .browse_btn{
+        background: white;
+        padding: 5px 10px;
+        border-radius: 20px;
+        border: thin gray solid;
+        outline: none;
+        box-shadow: 0px 1px 2px rgba(0,0,0,0.5);
+      }
+
+      .add_product_master_btn{
+        background: skyblue;
+        padding: 5px 20px;
+        border-radius: 20px;
+        border: thin skyblue solid;
+        outline: none;
+        color: #FFFFFF;
+      }
+    }
+
   }
 }
