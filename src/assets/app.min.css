@@ -50,7 +50,8 @@ label {
 input[type="text"] {
   border: thin black solid;
   border-radius: 1px;
-  padding: 6px 12px;
+  padding: 6px;
+  height: 30px;
   width: 100%; }
   input[type="text"]:focus {
     border: thin #23d7e5 solid; }
@@ -99,6 +100,9 @@ input[type="text"] {
 
 .m-t-md {
   margin-top: 20px; }
+
+.m-t-lg {
+  margin-top: 30px; }
 
 .text-white {
   color: #FFFFFF; }
@@ -172,13 +176,70 @@ input[type="text"] {
     border-right: thin black solid;
     border-top: thin transparent solid;
     padding: 0 15px; }
+    .filter_main_div .filter_inner_main_div .icon-addon {
+      position: relative;
+      color: #555;
+      display: block; }
+      .filter_main_div .filter_inner_main_div .icon-addon input[type="text"] {
+        border-radius: 25px; }
+    .filter_main_div .filter_inner_main_div .icon-addon:after,
+    .filter_main_div .filter_inner_main_div .icon-addon:before {
+      display: table;
+      content: " "; }
+    .filter_main_div .filter_inner_main_div .icon-addon:after {
+      clear: both; }
+    .filter_main_div .filter_inner_main_div .icon-addon.addon-md .glyphicon,
+    .filter_main_div .filter_inner_main_div .icon-addon .glyphicon,
+    .filter_main_div .filter_inner_main_div .icon-addon.addon-md .fa,
+    .filter_main_div .filter_inner_main_div .icon-addon .fa {
+      position: absolute;
+      z-index: 2;
+      left: 10px;
+      font-size: 14px;
+      width: 20px;
+      margin-left: -2.5px;
+      text-align: center;
+      padding: 10px 0;
+      top: 1px; }
+    .filter_main_div .filter_inner_main_div .icon-addon.addon-lg .form-control {
+      line-height: 1.33;
+      height: 46px;
+      font-size: 18px;
+      padding: 10px 16px 10px 40px; }
+    .filter_main_div .filter_inner_main_div .icon-addon.addon-sm .form-control {
+      height: 30px;
+      padding: 5px 10px 5px 28px;
+      font-size: 12px;
+      line-height: 1.5; }
+    .filter_main_div .filter_inner_main_div .icon-addon.addon-lg .fa,
+    .filter_main_div .filter_inner_main_div .icon-addon.addon-lg .glyphicon {
+      font-size: 18px;
+      margin-left: 0;
+      left: 11px;
+      top: 4px; }
+    .filter_main_div .filter_inner_main_div .icon-addon.addon-md .form-control,
+    .filter_main_div .filter_inner_main_div .icon-addon .form-control {
+      padding-left: 30px;
+      float: left;
+      font-weight: normal; }
+    .filter_main_div .filter_inner_main_div .icon-addon.addon-sm .fa,
+    .filter_main_div .filter_inner_main_div .icon-addon.addon-sm .glyphicon {
+      margin-left: 0;
+      font-size: 12px;
+      left: 5px;
+      top: -1px; }
+    .filter_main_div .filter_inner_main_div .icon-addon .form-control:focus + .glyphicon,
+    .filter_main_div .filter_inner_main_div .icon-addon:hover .glyphicon,
+    .filter_main_div .filter_inner_main_div .icon-addon .form-control:focus + .fa,
+    .filter_main_div .filter_inner_main_div .icon-addon:hover .fa {
+      color: #2580db; }
     .filter_main_div .filter_inner_main_div .save_filter_btn {
       margin: 15px 0;
       width: 100%;
       height: 34px;
       border-radius: 25px;
-      background: skyblue;
-      border: thin skyblue solid;
+      background: #229af0;
+      border: thin #229af0 solid;
       outline: none;
       color: #FFFFFF; }
       .filter_main_div .filter_inner_main_div .save_filter_btn:hover, .filter_main_div .filter_inner_main_div .save_filter_btn:focus {
@@ -201,8 +262,8 @@ input[type="text"] {
       padding: 5px 15px;
       color: #FFFFFF;
       border-radius: 25px;
-      background: skyblue;
-      border: thin skyblue solid;
+      background: #229af0;
+      border: thin #229af0 solid;
       outline: none; }
     .product_master_main_div .product_master_inner_div .add_product_master_div {
       border: thin gray solid;
@@ -222,11 +283,37 @@ input[type="text"] {
         outline: none;
         box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5); }
       .product_master_main_div .product_master_inner_div .add_product_master_div .add_product_master_btn {
-        background: skyblue;
+        background: #229af0;
         padding: 5px 20px;
         border-radius: 20px;
-        border: thin skyblue solid;
+        border: thin #229af0 solid;
         outline: none;
         color: #FFFFFF; }
+    .product_master_main_div .product_master_inner_div .product_master_tabular_div .product_master_tabular_inner_div table {
+      margin-bottom: 0; }
+      .product_master_main_div .product_master_inner_div .product_master_tabular_div .product_master_tabular_inner_div table thead th {
+        font-size: 10px;
+        color: white;
+        background: #02bfd4;
+        padding: 5px 10px;
+        font-weight: 300;
+        vertical-align: middle;
+        border-bottom: none; }
+      .product_master_main_div .product_master_inner_div .product_master_tabular_div .product_master_tabular_inner_div table tbody {
+        border-top: none; }
+        .product_master_main_div .product_master_inner_div .product_master_tabular_div .product_master_tabular_inner_div table tbody td {
+          font-size: 11px;
+          vertical-align: middle; }
+      .product_master_main_div .product_master_inner_div .product_master_tabular_div .product_master_tabular_inner_div table .odd {
+        background: #cef3f5; }
+      .product_master_main_div .product_master_inner_div .product_master_tabular_div .product_master_tabular_inner_div table .even {
+        background: #FFFFFF; }
+    .product_master_main_div .product_master_inner_div .product_master_tabular_div .pagination_div .pagination_div_btn {
+      background: white;
+      padding: 5px 20px;
+      border-radius: 20px;
+      border: thin gray solid;
+      outline: none;
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5); }
 
 /*# sourceMappingURL=app.min.css.map */
