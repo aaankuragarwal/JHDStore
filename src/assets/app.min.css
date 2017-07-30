@@ -8,6 +8,18 @@ body {
 label {
   font-weight: 400; }
 
+.b-black {
+  border: thin #000000 solid; }
+
+.b-b-black {
+  border-bottom: thin black solid; }
+
+.b-l-black {
+  border-left: thin black solid; }
+
+.b-r-black {
+  border-right: thin black solid; }
+
 .custom_select_box {
   width: 100%; }
   .custom_select_box .select-wrapper {
@@ -104,6 +116,39 @@ input[type="text"] {
 .m-t-lg {
   margin-top: 30px; }
 
+.m-l-3px {
+  margin-left: 3px; }
+
+.m-l-xs {
+  margin-left: 5px; }
+
+.m-l-sm {
+  margin-left: 10px !important; }
+
+.m-l {
+  margin-left: 15px; }
+
+.m-l-md {
+  margin-left: 20px; }
+
+.m-l-25px {
+  margin-left: 25px; }
+
+.m-l-lg {
+  margin-left: 30px; }
+
+.m-l-xl {
+  margin-left: 40px; }
+
+.m-l-xxl {
+  margin-left: 50px; }
+
+.m-l-60px {
+  margin-left: 60px; }
+
+.m-l-70px {
+  margin-left: 70px; }
+
 .text-white {
   color: #FFFFFF; }
 
@@ -173,7 +218,6 @@ input[type="text"] {
   float: left;
   width: 18%; }
   .filter_main_div .filter_inner_main_div {
-    border-right: thin black solid;
     border-top: thin transparent solid;
     padding: 0 15px; }
     .filter_main_div .filter_inner_main_div .icon-addon {
@@ -247,7 +291,8 @@ input[type="text"] {
 
 .product_master_main_div {
   width: 82%;
-  float: left; }
+  float: left;
+  border-left: thin black solid; }
   .product_master_main_div .product_master_inner_div {
     padding: 15px;
     width: 95%;
@@ -315,5 +360,22 @@ input[type="text"] {
       border: thin gray solid;
       outline: none;
       box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5); }
+  .product_master_main_div .copyright_div {
+    background: #edf1f2;
+    padding: 20px 0; }
+    .product_master_main_div .copyright_div .quick_links_div {
+      display: inline-block;
+      margin-right: 35px; }
+      .product_master_main_div .copyright_div .quick_links_div .quick_links {
+        display: inline-block;
+        margin: 0 10px; }
+        .product_master_main_div .copyright_div .quick_links_div .quick_links a {
+          color: #000000; }
+          .product_master_main_div .copyright_div .quick_links_div .quick_links a:active, .product_master_main_div .copyright_div .quick_links_div .quick_links a:visited {
+            text-decoration: none;
+            color: #000000; }
+          .product_master_main_div .copyright_div .quick_links_div .quick_links a:hover {
+            color: #333333;
+            text-decoration: none; }
 
 /*# sourceMappingURL=app.min.css.map */

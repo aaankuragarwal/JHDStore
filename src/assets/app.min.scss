@@ -14,6 +14,21 @@ label{
   font-weight: 400;
 }
 
+.b-black{
+  border: thin #000000 solid;
+}
+
+.b-b-black{
+  border-bottom: thin black solid;
+}
+
+.b-l-black{
+  border-left: thin black solid;
+}
+.b-r-black{
+  border-right: thin black solid;
+}
+
 .custom_select_box {
   width: 100%;
 
@@ -115,6 +130,8 @@ input[type="text"]{
   margin-left: 0;
 }
 
+
+
 .m-t-xs{
   margin-top: 5px;
 }
@@ -133,6 +150,50 @@ input[type="text"]{
 
 .m-t-lg{
   margin-top: 30px;
+}
+
+
+.m-l-3px{
+  margin-left: 3px;
+}
+
+.m-l-xs {
+  margin-left: 5px;
+}
+
+.m-l-sm {
+  margin-left: 10px !important;
+}
+
+.m-l {
+  margin-left: 15px;
+}
+
+.m-l-md {
+  margin-left: 20px;
+}
+.m-l-25px{
+  margin-left: 25px;
+}
+
+.m-l-lg {
+  margin-left: 30px;
+}
+
+.m-l-xl {
+  margin-left: 40px;
+}
+
+.m-l-xxl {
+  margin-left: 50px;
+}
+
+.m-l-60px{
+  margin-left: 60px;
+}
+
+.m-l-70px {
+  margin-left: 70px;
 }
 
 .text-white{
@@ -231,7 +292,7 @@ input[type="text"]{
 
 
   .filter_inner_main_div{
-    border-right: thin black solid;
+
     border-top: thin transparent solid;
     padding: 0 15px;
 
@@ -243,76 +304,76 @@ input[type="text"]{
     input[type="text"]{
       border-radius: 25px;
     }
-}
+  }
 
-.icon-addon:after,
-.icon-addon:before {
-    display: table;
-    content: " ";
-}
+      .icon-addon:after,
+      .icon-addon:before {
+          display: table;
+          content: " ";
+      }
 
-.icon-addon:after {
-    clear: both;
-}
+      .icon-addon:after {
+          clear: both;
+      }
 
-.icon-addon.addon-md .glyphicon,
-.icon-addon .glyphicon,
-.icon-addon.addon-md .fa,
-.icon-addon .fa {
-    position: absolute;
-    z-index: 2;
-    left: 10px;
-    font-size: 14px;
-    width: 20px;
-    margin-left: -2.5px;
-    text-align: center;
-    padding: 10px 0;
-    top: 1px
-}
+      .icon-addon.addon-md .glyphicon,
+      .icon-addon .glyphicon,
+      .icon-addon.addon-md .fa,
+      .icon-addon .fa {
+          position: absolute;
+          z-index: 2;
+          left: 10px;
+          font-size: 14px;
+          width: 20px;
+          margin-left: -2.5px;
+          text-align: center;
+          padding: 10px 0;
+          top: 1px
+      }
 
-.icon-addon.addon-lg .form-control {
-    line-height: 1.33;
-    height: 46px;
-    font-size: 18px;
-    padding: 10px 16px 10px 40px;
-}
+      .icon-addon.addon-lg .form-control {
+          line-height: 1.33;
+          height: 46px;
+          font-size: 18px;
+          padding: 10px 16px 10px 40px;
+      }
 
-.icon-addon.addon-sm .form-control {
-    height: 30px;
-    padding: 5px 10px 5px 28px;
-    font-size: 12px;
-    line-height: 1.5;
-}
+      .icon-addon.addon-sm .form-control {
+          height: 30px;
+          padding: 5px 10px 5px 28px;
+          font-size: 12px;
+          line-height: 1.5;
+      }
 
-.icon-addon.addon-lg .fa,
-.icon-addon.addon-lg .glyphicon {
-    font-size: 18px;
-    margin-left: 0;
-    left: 11px;
-    top: 4px;
-}
+      .icon-addon.addon-lg .fa,
+      .icon-addon.addon-lg .glyphicon {
+          font-size: 18px;
+          margin-left: 0;
+          left: 11px;
+          top: 4px;
+      }
 
-.icon-addon.addon-md .form-control,
-.icon-addon .form-control {
-    padding-left: 30px;
-    float: left;
-    font-weight: normal;
-}
+      .icon-addon.addon-md .form-control,
+      .icon-addon .form-control {
+          padding-left: 30px;
+          float: left;
+          font-weight: normal;
+      }
 
-.icon-addon.addon-sm .fa,
-.icon-addon.addon-sm .glyphicon {
-    margin-left: 0;
-    font-size: 12px;
-    left: 5px;
-    top: -1px
-}
+      .icon-addon.addon-sm .fa,
+      .icon-addon.addon-sm .glyphicon {
+          margin-left: 0;
+          font-size: 12px;
+          left: 5px;
+          top: -1px
+      }
 
-.icon-addon .form-control:focus + .glyphicon,
-.icon-addon:hover .glyphicon,
-.icon-addon .form-control:focus + .fa,
-.icon-addon:hover .fa {
-    color: #2580db;
-}
+      .icon-addon .form-control:focus + .glyphicon,
+      .icon-addon:hover .glyphicon,
+      .icon-addon .form-control:focus + .fa,
+      .icon-addon:hover .fa {
+          color: #2580db;
+      }
 
     .save_filter_btn{
       margin: 15px 0;
@@ -333,6 +394,7 @@ input[type="text"]{
 .product_master_main_div{
   width: 82%;
   float: left;
+  border-left: thin black solid;
 
   .product_master_inner_div{
     padding: 15px;
@@ -439,5 +501,32 @@ input[type="text"]{
       }
     }
 
+  }
+
+  .copyright_div{
+    background: #edf1f2;
+    padding: 20px 0;
+
+    .quick_links_div{
+      display: inline-block;
+      margin-right: 35px;
+      .quick_links{
+        display: inline-block;
+        margin: 0 10px;
+        a{
+          color: #000000;
+
+          &:active , &:visited{
+            text-decoration: none;
+            color: #000000;
+          }
+
+          &:hover{
+            color: #333333;
+            text-decoration: none;
+          }
+        }
+      }
+    }
   }
 }
