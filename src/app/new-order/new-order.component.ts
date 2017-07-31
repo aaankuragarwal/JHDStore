@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewOrderComponent implements OnInit {
 
+  
+
   constructor() { }
 
   ngOnInit() {
