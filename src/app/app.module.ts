@@ -12,16 +12,16 @@ import { LoginComponent } from './login/login.component';
 
 import { ApiService } from './Services/api.service';
 import { ContainerComponent } from './container/container.component';
-import { NewOrderComponent } from './new-order/new-order.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ContainerComponent,
-    NewOrderComponent,
-    OrderDetailComponent
+    OrderDetailComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -32,9 +32,9 @@ import { OrderDetailComponent } from './order-detail/order-detail.component';
       { path: '', component: AppComponent, children: [
         {path: 'login', component: LoginComponent },
         {path: 'dashboard', component: ContainerComponent, canActivate: [AuthGuard] , children: [
-          {path: 'new', component: NewOrderComponent },
-          {path: 'order', component: OrderDetailComponent },
-          { path: '', redirectTo: 'new', pathMatch: 'full' }
+          {path: '', component: DashboardComponent},
+          {path: 'order/:ordId', component: OrderDetailComponent },
+          { path: '**', redirectTo: '', pathMatch: 'full' }
         ]},
         { path: '', redirectTo: 'login', pathMatch: 'full' }
       ]}

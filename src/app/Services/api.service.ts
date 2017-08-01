@@ -12,8 +12,8 @@ export class ApiService {
 
     getData(url: string): Observable<any[]> {
         // get basic info
-        // let headers = new Headers({});
-        const options = new RequestOptions({ });
+        const headers = new Headers({'X-AUTH-TOKEN' :   localStorage.getItem('currentStoreUIUser')});
+        const options = new RequestOptions({headers: headers });
         return this.http.get(AppSettings.API_ENDPOINT + url, options)
             .map((response: Response) => response.json());
     }

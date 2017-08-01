@@ -13,19 +13,19 @@
       <div class="col-lg-5">
         <div class="">
           <span><b>Public Order ID : </b></span>
-          <span>JHD-5-146565465</span>
+          <span>{{orderData?.public_order_id}}</span>
         </div>
         <div class="m-t-xs">
           <span><b>UserId : </b></span>
-          <span>3774</span>
+          <span>{{orderData?.user_id}}</span>
         </div>
         <div class="m-t-xs">
           <span><b>Name :</b></span>
-          <span>Kashish, Mobile: 7982465424, 7922154225 </span>
+          <span>{{user?.name}}, Mobile: {{user?.mobile}} </span>
         </div>
         <div class="m-t-xs">
           <span><b>Address :  </b></span>
-          <span>gaur global village , a-1404 , Crossing Republic, Ghaziabad</span>
+          <span>??</span>
         </div>
         <div class="m-t-xs">
           <span><b>Order Status </b></span>
@@ -105,51 +105,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr >
-                      <td><input type="checkbox" name="" value="" ></td>
-                      <td>Name</td>
-                      <td>Brand</td>
-                      <td>Size</td>
-                      <td>Quantity</td>
-                      <td>Total Prize</td>
-                      <td>
-                        <button type="button" name="button" class="modify_remove_btn green_color">Modify</button>
-                      </td>
-                      <td>
-                        <button type="button" name="button" class="modify_remove_btn red_color">Remove</button>
-                      </td>
-                    </tr>
-
-                    <tr >
-                      <td><input type="checkbox" name="" value="" ></td>
-                      <td>Name</td>
-                      <td>Brand</td>
-                      <td>Size</td>
-                      <td>Quantity</td>
-                      <td>Total Prize</td>
-                      <td>
-                        <button type="button" name="button" class="modify_remove_btn green_color">Modify</button>
-                      </td>
-                      <td>
-                        <button type="button" name="button" class="modify_remove_btn red_color">Remove</button>
-                      </td>
-                    </tr>
-
-                    <tr >
-                      <td><input type="checkbox" name="" value="" ></td>
-                      <td>Name</td>
-                      <td>Brand</td>
-                      <td>Size</td>
-                      <td>Quantity</td>
-                      <td>Total Prize</td>
-                      <td>
-                        <button type="button" name="button" class="modify_remove_btn green_color">Modify</button>
-                      </td>
-                      <td>
-                        <button type="button" name="button" class="modify_remove_btn red_color">Remove</button>
-                      </td>
-                    </tr>
-                    <tr >
+                    <tr  *ngFor="let detail of orderDetail">
                       <td><input type="checkbox" name="" value="" ></td>
                       <td>Name</td>
                       <td>Brand</td>

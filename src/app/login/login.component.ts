@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     this.apiService.login(data, 'employee/login').subscribe((response: any) => {
       if (response.success) {
         console.log(response.message);
-        localStorage.setItem('currentStoreUIUser', response.result.auth);
+        localStorage.setItem('currentStoreUIUser', response.result.auth_token);
         this.router.navigate(['/dashboard']);
       } else {
         alert(response.message);
