@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewOrderComponent implements OnInit {
 
-  
+
+arr : any= [0,0,0,0,0,0,0,0,0,0,0,0];  
 
   constructor() { }
 

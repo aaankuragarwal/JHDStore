@@ -19,6 +19,52 @@ label{
   font-weight: 400;
 }
 
+.common_select_box{
+  width: 100%;
+    button{
+      border: thin #cfdadd solid;
+      border-radius: 0 !important;
+      width: 100%;
+      text-align: left;
+      padding: 7.45px 12px;
+      border-radius: 1.5px !important;
+
+      .caret {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin-right: 4px;
+        vertical-align: middle;
+        border-top: 6px dashed;
+        border-right: 6px solid transparent;
+        border-left: 6px solid transparent;
+        position: absolute;
+        top:14px;
+        right: 5px;
+      }
+    }
+    button:hover{
+      background: #f6f8f8;
+    }
+    ul.dropdown-menu {
+        border: 1px solid #cfdadd;
+        border-radius: 2px;
+        box-shadow: none !important;
+        min-width: 100%;
+        padding: 0px;
+        left: -1px;
+          li{
+            padding: 5px 15px;
+            font-size: 12px;
+          }
+          li:hover{
+            background: #edf1f2 !important;
+
+        }
+
+    }
+}
+
 .width_100_percent{
   width: 100% !important;
 }

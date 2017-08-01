@@ -12,6 +12,42 @@ body {
 label {
   font-weight: 400; }
 
+.common_select_box {
+  width: 100%; }
+  .common_select_box button {
+    border: thin #cfdadd solid;
+    border-radius: 0 !important;
+    width: 100%;
+    text-align: left;
+    padding: 7.45px 12px;
+    border-radius: 1.5px !important; }
+    .common_select_box button .caret {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-right: 4px;
+      vertical-align: middle;
+      border-top: 6px dashed;
+      border-right: 6px solid transparent;
+      border-left: 6px solid transparent;
+      position: absolute;
+      top: 14px;
+      right: 5px; }
+  .common_select_box button:hover {
+    background: #f6f8f8; }
+  .common_select_box ul.dropdown-menu {
+    border: 1px solid #cfdadd;
+    border-radius: 2px;
+    box-shadow: none !important;
+    min-width: 100%;
+    padding: 0px;
+    left: -1px; }
+    .common_select_box ul.dropdown-menu li {
+      padding: 5px 15px;
+      font-size: 12px; }
+    .common_select_box ul.dropdown-menu li:hover {
+      background: #edf1f2 !important; }
+
 .width_100_percent {
   width: 100% !important; }
 
