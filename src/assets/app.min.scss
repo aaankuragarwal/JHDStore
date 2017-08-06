@@ -647,11 +647,10 @@ input[type="text"]{
 
   .copyright_div{
     background: #edf1f2;
-    padding: 15px 0;
-    position: fixed;
-    width: 79.8%;
-    bottom: 3px;
-    left: 19.6%;
+    padding: 20px 0;
+    position: relative;
+    width: 100%;
+    margin-top: 53px;
 
     .quick_links_div{
       display: inline-block;

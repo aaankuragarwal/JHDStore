@@ -14,7 +14,8 @@ import { ApiService } from './Services/api.service';
 import { ContainerComponent } from './container/container.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import{NewOrderComponent} from './new-order/new-order.component'
+import { ProductMasterComponent } from './product-master/product-master.component';
+import { FooterComponent } from './footer/footer.component'
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import{NewOrderComponent} from './new-order/new-order.component'
     ContainerComponent,
     OrderDetailComponent,
     DashboardComponent,
-    NewOrderComponent
+    ProductMasterComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,7 @@ import{NewOrderComponent} from './new-order/new-order.component'
         {path: 'dashboard', component: ContainerComponent, canActivate: [AuthGuard] , children: [
           {path: 'order-list', component: DashboardComponent},
           {path: 'order/:ordId', component: OrderDetailComponent },
-          {path: 'product-master', component: NewOrderComponent },
+          {path: 'product-master', component: ProductMasterComponent },
           { path: '**', redirectTo: 'order-list', pathMatch: 'full' }
         ]},
         { path: '', redirectTo: 'login', pathMatch: 'full' }
