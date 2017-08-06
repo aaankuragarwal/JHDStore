@@ -4,12 +4,12 @@
       <div class="sub_menu_inner_div">
 
 
-        <div class="sub_menu_div bg-white cursor_pointer" (click)="getOrder('new')">
+        <div class="sub_menu_div bg-white cursor_pointer {{status == 'new' ? 'activated_menu_tab_div' : ''}}" (click)="getOrder('new')">
 
           <span>New</span>
         </div>
 
-        <div class="sub_menu_div bg-white cursor_pointer" (click)="getOrder('accepted')">
+        <div class="sub_menu_div bg-white cursor_pointer {{status == 'accepted' ? 'activated_menu_tab_div' : ''}}" (click)="getOrder('accepted')">
           <span>
             <svg class="v-middle" viewBox="0 0 55.867 55.867" style="enable-background:new 0 0 55.867 55.867;" xml:space="preserve">
             <path d="M55.818,21.578c-0.118-0.362-0.431-0.626-0.808-0.681L36.92,18.268L28.83,1.876c-0.168-0.342-0.516-0.558-0.896-0.558
@@ -21,7 +21,7 @@
           </span>
           <span>Accepted</span>
         </div>
-        <div class="sub_menu_div bg-white cursor_pointer" (click)="getOrder('processed')">
+        <div class="sub_menu_div bg-white cursor_pointer {{status == 'processed' ? 'activated_menu_tab_div' : ''}}" (click)="getOrder('processed')">
           <span>
             <svg class="v-middle" viewBox="0 0 333.656 333.656" style="enable-background:new 0 0 333.656 333.656;" xml:space="preserve">
               <path d="M166.825,333.656c-78.215,0-141.847-63.626-141.847-141.84c0-76.062,60.174-138.338,135.42-141.712l0.006-32.282
@@ -41,7 +41,7 @@
           </span>
           <span>Processed</span>
         </div>
-        <div class="sub_menu_div bg-white cursor_pointer" (click)="getOrder('out_for_delivery')">
+        <div class="sub_menu_div bg-white cursor_pointer {{status == 'out_for_delivery' ? 'activated_menu_tab_div' : ''}}" (click)="getOrder('out_for_delivery')">
           <span>
             <svg class="v-middle" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
               <path d="M330.667,384h-21.333c-5.891,0-10.667,4.776-10.667,10.667v74.667h-256V42.667h256v74.667
@@ -57,10 +57,10 @@
           </span>
           <span>Out for Delivery</span>
         </div>
-        <div class="sub_menu_div bg-white cursor_pointer" (click)="getOrder('delivered')">
+        <div class="sub_menu_div bg-white cursor_pointer {{status == 'delivered' ? 'activated_menu_tab_div' : ''}}" (click)="getOrder('delivered')">
           <span>Delivered</span>
         </div>
-        <div class="sub_menu_div bg-white cursor_pointer" (click)="getOrder('cancelled')">
+        <div class="sub_menu_div bg-white cursor_pointer {{status == 'cancelled' ? 'activated_menu_tab_div' : ''}}" (click)="getOrder('cancelled')">
           <span>Cancelled</span>
         </div>
       </div>
@@ -228,7 +228,7 @@
         </div>
       </div>
 
-      <div class="copyright_div">
+      <div class="copyright_div full_width_footer left_0">
         <div class="pull-left">
           <span class="m-l-xl"> &copy; 2017 Company Name. All rights reserved.</span>
         </div>

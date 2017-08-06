@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { ApiService} from '../Services/api.service';
 
@@ -9,6 +10,7 @@ import { ApiService} from '../Services/api.service';
 export class DashboardComponent implements OnInit {
 
   orderList: any;
+  status:string="new";
   constructor(
     private apiService: ApiService) { }
 
@@ -17,6 +19,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getOrder(status: string) {
+    this.status = status;
     this.apiService.getData('store/orders?status=' + status).subscribe((response: any) => {
       if (response.success) {
         console.log(response.message);

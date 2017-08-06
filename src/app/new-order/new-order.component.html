@@ -1,77 +1,128 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="sub_menu_main_div bg-light lter" >
+      <div class="sub_menu_inner_div">
+
+
+        <div class="sub_menu_div cursor_pointer " (click)="getOrder('new')">
+
+          <span>Inventory</span>
+        </div>
+
+        <div class="sub_menu_div cursor_pointer " (click)="getOrder('accepted')">
+          <span>Master</span>
+        </div>
+        <div class="sub_menu_div cursor_pointer " (click)="getOrder('processed')">
+
+          <span>Notifications</span>
+        </div>
+        <div class="sub_menu_div cursor_pointer " (click)="getOrder('out_for_delivery')">
+          <span>Tags</span>
+        </div>
+        <div class="sub_menu_div  cursor_pointer " (click)="getOrder('delivered')">
+          <span>Coupons</span>
+        </div>
+        <div class="sub_menu_div  cursor_pointer " (click)="getOrder('cancelled')">
+          <span>Cat-Subcats</span>
+        </div>
+        <div class="sub_menu_div cursor_pointer " (click)="getOrder('cancelled')">
+          <span>Wallet</span>
+        </div>
+      </div>
+      <div class="new_item_div pull-right">
+        <span>
+          <svg class="v-middle" viewBox="0 0 52 52" style="enable-background:new 0 0 52 52;" >
+            <path d="M26,0C11.664,0,0,11.663,0,26s11.664,26,26,26s26-11.663,26-26S40.336,0,26,0z M26,50C12.767,50,2,39.233,2,26
+            S12.767,2,26,2s24,10.767,24,24S39.233,50,26,50z"/>
+            <path d="M38.5,25H27V14c0-0.553-0.448-1-1-1s-1,0.447-1,1v11H13.5c-0.552,0-1,0.447-1,1s0.448,1,1,1H25v12c0,0.553,0.448,1,1,1
+            s1-0.447,1-1V27h11.5c0.552,0,1-0.447,1-1S39.052,25,38.5,25z"/>
+          </svg>
+        </span>
+        <span>New Item</span>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="row black_top_border m-l-none m-r-none">
-          <div class="filter_main_div b-r-none">
-              <div class="filter_inner_main_div">
-                <div class="row m-t ">
-                  <div class="col-lg-12">
-                    <label>Filters</label>
-                    <div class="form-group">
-                      <div class="icon-addon addon-sm">
-                          <input class="form-control" id="email" type="text">
-                          <label for="email" class="glyphicon glyphicon-search" rel="tooltip" title="email"></label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row m-t-sm">
-                  <div class="col-lg-12">
-                    <label>Item Type</label>
-                    <div class="custom_select_box">
-                      <div class="select-wrapper">
-                        <select class="" name="">
-                          <option value="">Option 1</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row m-t-md">
-                  <div class="col-lg-12">
-                    <label>Current Status</label>
-                    <div class="custom_select_box">
-                      <div class="select-wrapper">
-                        <select class="" name="">
-                          <option value="">Option 1</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row m-t-md">
-                  <div class="col-lg-12">
-                    <label>Start Date</label>
-                    <div class="form-group">
-                      <div class='input-group date' id='datetimepicker1'>
-                          <input type='text' class="form-control" />
-                          <span class="input-group-addon">
-                              <span class="glyphicon glyphicon-calendar"></span>
-                          </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row m-t-xs">
-                  <div class="col-lg-12">
-                    <label>Product Name</label>
-                    <input type="text" name="" value="">
-                  </div>
-                </div>
-                <div class="row m-t-md">
-                  <div class="col-lg-12">
-                    <label>Mobile</label>
-                    <input type="text" name="" value="">
-                  </div>
-                </div>
-                <div class="row text-center">
-                  <div class="col-lg-12">
-                    <button type="button" name="button" class="save_filter_btn">Save Filter</button>
-                  </div>
-                </div>
+  <div class="filter_main_div b-r-none">
+      <div class="filter_inner_main_div">
+        <div class="row m-t ">
+          <div class="col-lg-12">
+            <label>Filters</label>
+            <div class="form-group">
+              <div class="icon-addon addon-sm">
+                  <input class="form-control" id="email" type="text">
+                  <label for="email" class="glyphicon glyphicon-search" rel="tooltip" title="email"></label>
               </div>
+            </div>
           </div>
-          <div class="product_master_main_div b-l-black">
+        </div>
+        <div class="row m-t">
+          <div class="col-lg-12">
+            <label>Item Type</label>
+            <div class="common_select_box">
+              <div class="input-group-btn dropdown {{item_type ? 'open' : ''}}" (click)="item_type = !item_type">
+                  <button type="button" class="btn btn-default font_size_12 no_box_shadow ticket_info_subline_text_color" dropdown-toggle="" aria-haspopup="true" aria-expanded="false" >Select Item Type<span class="caret" style="color: #bfbfbf;"></span></button>
+                  <ul class="dropdown-menu">
+                    <li class="cursor_pointer" > Item 1</li>
+                    <li class="cursor_pointer" > Item 2</li>
+                  </ul>
+              </div>
+              <!-- /btn-group -->
+            </div>
+          </div>
+        </div>
+
+        <div class="row m-t-lg">
+          <div class="col-lg-12">
+            <label>Current Status</label>
+            <div class="common_select_box">
+              <div class="input-group-btn dropdown {{status_type ? 'open' : ''}}" (click)="status_type = !status_type">
+                  <button type="button" class="btn btn-default font_size_12 no_box_shadow ticket_info_subline_text_color" dropdown-toggle="" aria-haspopup="true" aria-expanded="false" >Select Status<span class="caret" style="color: #bfbfbf;"></span></button>
+                  <ul class="dropdown-menu">
+                    <li class="cursor_pointer" > Status 1</li>
+                    <li class="cursor_pointer" > Status 2</li>
+                  </ul>
+              </div>
+              <!-- /btn-group -->
+            </div>
+          </div>
+        </div>
+
+        <div class="row m-t-lg">
+          <div class="col-lg-12">
+            <label>Start Date</label>
+            <div class="form-group">
+              <div class='input-group date' id='datetimepicker1'>
+                  <input type='text' class="form-control" />
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row m-t">
+          <div class="col-lg-12">
+            <label>Product Name</label>
+            <input type="text" name="" value="">
+          </div>
+        </div>
+        <div class="row m-t-lg">
+          <div class="col-lg-12">
+            <label>Mobile</label>
+            <input type="text" name="" value="">
+          </div>
+        </div>
+        <div class="row text-center m-t m-b-35px">
+          <div class="col-lg-12">
+            <button type="button" name="button" class="save_filter_btn">Save Filter</button>
+          </div>
+        </div>
+      </div>
+  </div>
+          <div class="product_master_main_div b-l-black" >
             <div class="product_master_inner_div">
               <div class="product_master_bottom_border">
                 <div class="product_master pull-left">
@@ -202,8 +253,8 @@
               </div>
               <div class="row m-t-md">
                 <div class="col-lg-12">
-                  <div class="product_master_tabular_div">
-                    <div class="product_master_tabular_inner_div">
+                  <div class="product_master_tabular_div b-none product_master_height">
+                    <div class="product_master_tabular_inner_div product_master_table_height">
                       <div class="table-responsive">
                         <table class="table">
                           <thead>
@@ -223,7 +274,7 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr class="odd">
+                            <tr>
 
                               <td>ID</td>
                               <td>Name</td>
@@ -237,7 +288,7 @@
                               <td>Active</td>
                               <td>Current Tag</td>
                             </tr>
-                            <tr class="even">
+                            <tr>
 
                               <td>ID</td>
                               <td>Name</td>
@@ -251,7 +302,7 @@
                               <td>Active</td>
                               <td>Current Tag</td>
                             </tr>
-                            <tr class="odd">
+                            <tr>
 
                               <td>ID</td>
                               <td>Name</td>
@@ -265,7 +316,7 @@
                               <td>Active</td>
                               <td>Current Tag</td>
                             </tr>
-                            <tr class="even">
+                            <tr>
 
                               <td>ID</td>
                               <td>Name</td>
@@ -279,7 +330,7 @@
                               <td>Active</td>
                               <td>Current Tag</td>
                             </tr>
-                            <tr class="odd">
+                            <tr>
 
                               <td>ID</td>
                               <td>Name</td>
@@ -293,7 +344,8 @@
                               <td>Active</td>
                               <td>Current Tag</td>
                             </tr>
-                            <tr class="even">
+                            <tr>
+
                               <td>ID</td>
                               <td>Name</td>
                               <td>Desc</td>
@@ -306,8 +358,7 @@
                               <td>Active</td>
                               <td>Current Tag</td>
                             </tr>
-
-                            <tr class="odd">
+                            <tr>
                               <td>&nbsp;</td>
                               <td>&nbsp;</td>
                               <td>&nbsp;</td>
@@ -331,6 +382,32 @@
                   </div>
                 </div>
               </div>
+              <div class="copyright_div ">
+        <div class="pull-left">
+          <span class="m-l-xl"> &copy; 2017 Company Name. All rights reserved.</span>
+        </div>
+        <div class="pull-right quick_links_div">
+          <div class="quick_links">
+            <a href="#">Home</a>
+          </div>
+
+          <div class="quick_links">
+            <a href="#">About</a>
+          </div>
+          <div class="quick_links">
+            <a href="#">Services</a>
+          </div>
+          <div class="quick_links">
+            <a href="#">Works</a>
+          </div>
+          <div class="quick_links">
+            <a href="#">News</a>
+          </div>
+          <div class="quick_links">
+            <a href="#">Contact</a>
+          </div>
+        </div>
+      </div>
             </div>
 
           </div>

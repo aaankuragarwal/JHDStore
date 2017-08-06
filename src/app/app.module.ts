@@ -14,6 +14,7 @@ import { ApiService } from './Services/api.service';
 import { ContainerComponent } from './container/container.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import{NewOrderComponent} from './new-order/new-order.component'
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     LoginComponent,
     ContainerComponent,
     OrderDetailComponent,
-    DashboardComponent
+    DashboardComponent,
+    NewOrderComponent
   ],
   imports: [
     BrowserModule,
@@ -32,9 +34,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
       { path: '', component: AppComponent, children: [
         {path: 'login', component: LoginComponent },
         {path: 'dashboard', component: ContainerComponent, canActivate: [AuthGuard] , children: [
-          {path: '', component: DashboardComponent},
+          {path: 'order-list', component: DashboardComponent},
           {path: 'order/:ordId', component: OrderDetailComponent },
-          { path: '**', redirectTo: '', pathMatch: 'full' }
+          {path: 'product-master', component: NewOrderComponent },
+          { path: '**', redirectTo: 'order-list', pathMatch: 'full' }
         ]},
         { path: '', redirectTo: 'login', pathMatch: 'full' }
       ]}

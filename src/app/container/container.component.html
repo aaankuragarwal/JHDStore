@@ -6,13 +6,13 @@
       </div> -->
       <div class="main_navigation_logo_div bg-white">
         <div class="logo_div pull-left">
-          <img src="http://media1.fashionfreax.net/press/ffx-rectangle-big.png" alt="" class="img-responsive">
+          <img src="https://s3.ap-south-1.amazonaws.com/jhd-banner-images/logo.jpg" alt="" class="img-responsive">
         </div>
-        <div class="menu_main_div">
-          <div class="menu_inner_div activated_menu_tab_div" >
+        <div class="menu_main_div"  >
+          <div class="menu_inner_div" [routerLink]="['/dashboard/order-list']" routerLinkActive="activated_menu_tab_div">
             <span>Items</span>
           </div>
-          <div class="menu_inner_div ">
+          <div class="menu_inner_div " [routerLink]="['/dashboard/product-master']" routerLinkActive="activated_menu_tab_div">
             <span>Management</span>
           </div>
           <div class="menu_inner_div">
@@ -63,7 +63,7 @@
           </ul>
         </div>
       </div>
-      
+
 
     </div>
   </div>
