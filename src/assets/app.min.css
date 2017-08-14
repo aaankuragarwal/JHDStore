@@ -1,3 +1,31 @@
+.btn-dark {
+  color: #fff !important;
+  background-color: #3a3f51;
+  border-color: #3a3f51; }
+
+.btn-dark.active,
+.btn-dark:active,
+.btn-dark:focus,
+.btn-dark:hover,
+.open .dropdown-toggle.btn-dark {
+  color: #fff !important;
+  background-color: #2f3342;
+  border-color: #292d39; }
+
+.cancel_btn {
+  width: 128px;
+  height: 30px;
+  color: #58666e;
+  outline: none;
+  background: #f6f8f8;
+  padding: 0; }
+  .cancel_btn:hover, .cancel_btn:active, .cancel_btn:focus {
+    text-decoration: none !important;
+    outline: none !important;
+    background: #edf1f2 !important;
+    color: #58666e !important;
+    padding: 0; }
+
 body {
   margin: 0;
   padding: 0;
@@ -11,6 +39,18 @@ body {
 
 label {
   font-weight: 400; }
+
+.b {
+  border: thin #eeeeee soild; }
+
+.b-b-none {
+  border-bottom: none; }
+
+.m-r-none {
+  margin-right: 0; }
+
+.m-l-none {
+  margin-left: 0; }
 
 .common_select_box {
   width: 100%; }
@@ -151,6 +191,9 @@ input[type="text"] {
 .m-t-md {
   margin-top: 20px; }
 
+.m-t-25px {
+  margin-top: 25px; }
+
 .m-t-lg {
   margin-top: 30px; }
 
@@ -211,6 +254,12 @@ input[type="text"] {
 
 .product_master_table_height {
   height: 300px !important; }
+
+.custom_button_width {
+  width: 128px;
+  height: 30px;
+  line-height: 18px;
+  border-radius: 2px; }
 
 .main_store_div {
   height: 100%;
@@ -479,6 +528,69 @@ input[type="text"] {
           .main_store_div .copyright_div .quick_links_div .quick_links a:hover {
             color: #333333;
             text-decoration: none; }
+  .main_store_div .order_details_main_div .cancel_order_popup .modal-content {
+    width: 400px !important;
+    margin-left: 108.5px !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 4px !important; }
+    .main_store_div .order_details_main_div .cancel_order_popup .modal-content .modal-header {
+      padding: 0;
+      border-bottom: none !important; }
+      .main_store_div .order_details_main_div .cancel_order_popup .modal-content .modal-header .close {
+        display: none; }
+    .main_store_div .order_details_main_div .cancel_order_popup .modal-content .new_ticket_modal_header_bg {
+      background: #edf1f2;
+      border-top-right-radius: 4px;
+      border-top-left-radius: 4px;
+      height: 67px;
+      border-bottom: none;
+      color: #7c7c7c !important;
+      padding: 15px; }
+      .main_store_div .order_details_main_div .cancel_order_popup .modal-content .new_ticket_modal_header_bg .default_text_div .reg_form_name {
+        width: 85%; }
+      .main_store_div .order_details_main_div .cancel_order_popup .modal-content .new_ticket_modal_header_bg .sub_text_color {
+        color: #999999; }
+      .main_store_div .order_details_main_div .cancel_order_popup .modal-content .new_ticket_modal_header_bg .close_icon_div {
+        width: 32px;
+        height: 32px;
+        border-radius: 50% !important;
+        background: #dee5e7;
+        position: relative;
+        text-align: center;
+        top: 5px;
+        /* Firefox */
+        display: -moz-box;
+        -moz-box-orient: horizontal;
+        -moz-box-pack: center;
+        -moz-box-align: center;
+        /* Safari and Chrome */
+        display: -webkit-box;
+        -webkit-box-orient: horizontal;
+        -webkit-box-pack: center;
+        -webkit-box-align: center;
+        /* W3C */
+        display: box;
+        box-orient: horizontal;
+        box-pack: center;
+        box-align: center;
+        /* IE10 -Doesn't work yet! */
+        display: -ms-flexbox;
+        -ms-flex-align: center;
+        -ms-flex-pack: center;
+        -ms-box-orient: horizontal; }
+        .main_store_div .order_details_main_div .cancel_order_popup .modal-content .new_ticket_modal_header_bg .close_icon_div span {
+          color: #3a3f51;
+          font-size: 17px; }
+    .main_store_div .order_details_main_div .cancel_order_popup .modal-content .modal-body {
+      padding: 0; }
+      .main_store_div .order_details_main_div .cancel_order_popup .modal-content .modal-body p {
+        font-size: 16px; }
+    .main_store_div .order_details_main_div .cancel_order_popup .modal-content .modal-footer {
+      padding: 0 !important;
+      border-top: thin #dee5e7 solid; }
+    .main_store_div .order_details_main_div .cancel_order_popup .modal-content .add_new_ticket_modal_footer {
+      height: 59px; }
   .main_store_div .order_details_main_div .order_details_inner_div {
     margin: 15px;
     padding-bottom: 10px;

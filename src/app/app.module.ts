@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { ModalModule, Modal } from "ng2-modal";
 
 import { AuthGuard } from './Services/auth.guard';
 
@@ -28,6 +29,7 @@ import { FooterComponent } from './footer/footer.component'
     FooterComponent
   ],
   imports: [
+    ModalModule,
     BrowserModule,
     CommonModule,
     FormsModule,
@@ -47,7 +49,7 @@ import { FooterComponent } from './footer/footer.component'
   ],
   providers: [
     ApiService,
-    AuthGuard
+    AuthGuard,Modal
   ],
   bootstrap: [AppComponent]
 })

@@ -26,9 +26,8 @@ export class ApiService {
     }
     postData(data: any, url: any): Observable<any[]> {
         // post data
-        console.log(data);
-        // let headers = new Headers({ });
-        const options = new RequestOptions({ });
+        const headers = new Headers({'X-AUTH-TOKEN' :   localStorage.getItem('currentStoreUIUser')});
+        const options = new RequestOptions({headers: headers });
 
         return this.http.post(AppSettings.API_ENDPOINT + url, data, options)
             .map((response: Response) => response.json());

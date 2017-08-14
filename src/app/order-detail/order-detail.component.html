@@ -4,8 +4,7 @@
       <span>Order Details</span>
     </div>
     <div class="text-right order_details_btns_div">
-      <button type="button" name="button" class="order_details_btns">Back</button>
-      <button type="button" name="button" class="order_details_btns">Add Product</button>
+      <button type="button" name="button" class="order_details_btns" (click)="addProduct.open()">Add Product</button>
     </div>
   </div>
   <div class="order_details_info_div">
@@ -25,61 +24,62 @@
         </div>
         <div class="m-t-xs">
           <span><b>Address :  </b></span>
-          <span>??</span>
+          <span>{{address?.address_line_one}} </span>
         </div>
         <div class="m-t-xs">
           <span><b>Order Status </b></span>
-          <span>Delivered</span>
+          <span>{{orderData?.status}}</span>
         </div>
 
       </div>
       <div class="col-lg-3">
         <div class="">
           <span><b>Payment Mode : </b></span>
-          <span>cash_on_delivery ,</span>
+          <span>{{orderData?.payment_mode}}</span>
         </div>
         <div class="m-t-xs">
           <span><b>Payment Status</b></span>
-          <span>Pending</span>
+          <span>{{orderData?.payment_status}}</span>
         </div>
         <div class="m-t-xs">
           <span><b>Coupon used : </b></span>
-          <span>,</span>
+          <span>{{orderData?.coupon_code}}</span>
         </div>
         <div class="m-t-xs">
           <span><b>Discount : </b></span>
-          <span>0</span>
+          <span>{{orderData?.discount}}</span>
         </div>
         <div class="m-t-xs">
           <span><b>Total Bill : </b></span>
-          <span>611</span>
+          <span>{{orderData?.bill}}</span> 
+          <!-- total_bill -->
         </div>
         <div class="m-t-xs">
           <span><b>Payment : </b></span>
-          <span>611</span>
+          <span>{{orderData?.total_to_pay}}</span>
         </div>
 
       </div>
       <div class="col-lg-4">
         <div class="">
           <span><b>Wallet used : </b></span>
-          <span>,</span>
+          <span>{{orderData?.wallet_deduction}}</span>
         </div>
         <div class="m-t-xs">
           <span><b>Delivery slots : </b></span>
-          <span>6/20/2017(3:00:00PM - 5:00:00 PM)</span>
+          <span>{{slot?.start_time | date}} ({{slot?.start_time | date:'shortTime'}} - {{slot?.end_time | date:'shortTime'}})</span>
         </div>
         <div class="m-t-xs">
           <span><b>Order Creation Time : </b></span>
-          <span>6/20/2017, 4:18:51 PM</span>
+          <span>{{orderData?.created_at | date:'medium'}}</span>
         </div>
         <div class="m-t-xs">
           <span><b>User Comments : </b></span>
           <span>&nbsp;</span>
         </div>
         <div class="m-t-xs">
-          <span><b>Store Comments</b></span>
-          <span>&nbsp;</span>
+          <span><b>Store Comments:</b></span>
+          <span>{{orderData?.store_comments}}&nbsp;</span>
         </div>
 
       </div>
@@ -97,28 +97,37 @@
                       <th>Name</th>
                       <th>Brand</th>
                       <th>Size</th>
+                      <th>Price</th>
                       <th>Quantity</th>
-                      <th>Total Prize</th>
+                      <th>Total Price</th>
                       <th>&nbsp;</th>
                       <th>&nbsp;</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr  *ngFor="let detail of orderDetail">
-                      <td>Name</td>
-                      <td>Brand</td>
-                      <td>Size</td>
-                      <td>Quantity</td>
-                      <td>Total Prize</td>
-                      <td>
-                        <button type="button" name="button" class="modify_remove_btn green_color">Modify</button>
+                    <tr  *ngFor="let product of products; let i = index">
+                      <td *ngIf="!product.image_link">{{product?.name}}</td>
+                      <td *ngIf="product.image_link"><a [href]="product.image_link">{{product?.name}}</a></td>
+                      <td>{{product?.brand}}</td>
+                      <td>{{product?.weight}}</td>
+                      <td *ngIf="!product.isModify">{{product?.price}} ₹</td>
+                      <td *ngIf="product.isModify"><input type="number" [(ngModel)]="product.price" (keypress)="productKeyPressed($event, product, i)"></td>
+                      <td *ngIf="!product.isModify">{{product?.quantity}}</td>
+                      <td *ngIf="product.isModify"><input type="number" [(ngModel)]="product.quantity" (keypress)="productKeyPressed($event, product, i)"></td>
+                      <td>{{product.price * product.quantity}} ₹</td>
+                      <td  *ngIf="!product.isModify">
+                        <button type="button" name="button" class="modify_remove_btn green_color" (click)="tempPrice = product.price; tempQuant = product.quantity;product.isModify = true;">Modify</button>
+                      </td>
+                      <td  *ngIf="product.isModify">
+                        <button type="button" name="button" class="modify_remove_btn green_color" (click)="updateProduct(i, false)">Update</button>
                       </td>
                       <td>
-                        <button type="button" name="button" class="modify_remove_btn red_color">Remove</button>
+                        <button type="button" name="button" class="modify_remove_btn red_color" (click)="updateProduct(i, true)">Remove</button>
                       </td>
                     </tr>
 
                     <tr >
+                      <td>&nbsp;</td>
                       <td>&nbsp;</td>
                       <td>&nbsp;</td>
                       <td>&nbsp;</td>
@@ -137,11 +146,182 @@
       <div class="row m-t-sm m-b-md">
         <div class="col-lg-12">
           <div class="pagination_div text-center">
-            <button type="button" name="button" class="pagination_div_btn">Update Status</button>
-            <button type="button" name="button" class="pagination_div_btn">Cancel Order</button>
+            <button type="button" name="button" class="pagination_div_btn" (click)="UpdateOrder.open();" *ngIf="orderData.status !== 'delivered' || orderData.status !== 'cancelled' ">Update Status</button>
+            <button type="button" name="button" class="pagination_div_btn" (click)="CancelOrder.open();">Cancel Order</button>
             <button type="button" name="button" class="pagination_div_btn">Print</button>
           </div>
         </div>
       </div>
+
+
+      
+      <modal #removeOrder class="cancel_order_popup">
+        <modal-header>
+        <div class="new_ticket_modal_header_bg b-b-none">
+          <div class="close_icon_div pull-right cursor_pointer" (click)="removeOrder.close()" >
+            <span>&#x2715;</span>
+          </div>
+          <div class="default_text_div" >
+            <div class="modal-title font_size_15 padding_left_6">
+              <span>Cancel Order</span>
+            </div>
+            <div class="font_size_11 m-t-xs sub_text_color padding_left_6">
+              <span>Order Id: {{orderData?.public_order_id}}</span>
+            </div>
+          </div>
+        </div>
+            
+        </modal-header>
+        <modal-content>
+          <div class="row m-l-none m-r-none m-t-lg m-b-lg text-center">
+          <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-offset-3 col-xs-6">
+            <label class="pull-left"> Reason for Cancel Order </label>
+            <input type="text" name="" >
+          </div>
+          </div>
+        </modal-content>
+        <modal-footer>
+        <div class="add_new_ticket_modal_footer">
+          <div class="row m-t-25px">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <button class="btn btn-dark custom_button_width text-white pull-right" type="button">Okay</button>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <button class="btn cancel_btn custom_button_width pull-left b" type="button" (click)="CancelOrder.close()">Cancel</button>
+            </div>
+          </div>
+        </div>
+        </modal-footer>
+        
+      </modal>
+
+
+
+      <modal #CancelOrder class="cancel_order_popup">
+        <modal-header>
+          <div class="new_ticket_modal_header_bg b-b-none">
+            <div class="close_icon_div pull-right cursor_pointer" (click)="CancelOrder.close()" >
+              <span>&#x2715;</span>
+            </div>
+            <div class="default_text_div" >
+              <div class="modal-title font_size_15 padding_left_6">
+                <span>Cancel Order</span>
+              </div>
+              <div class="font_size_11 m-t-xs sub_text_color padding_left_6">
+                <span>Order Id: {{orderData?.public_order_id}}</span>
+              </div>
+            </div>
+          </div>
+        </modal-header>
+        <modal-content>
+          <div class="row m-l-none m-r-none m-t-lg m-b-lg text-center">
+            <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-offset-3 col-xs-6">
+              <label class="pull-left"> Reason for Cancel Order </label>
+              <input type="text" name="cancel" [(ngModel)]="cancelMsg" >
+            </div>
+          </div>
+        </modal-content>
+        <modal-footer>
+          <div class="add_new_ticket_modal_footer">
+            <div class="row m-t-25px">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <button class="btn btn-dark custom_button_width text-white pull-right" type="button" (click)="cancelOrder()">Cancel Order</button>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <button class="btn cancel_btn custom_button_width pull-left b" type="button" (click)="CancelOrder.close()">Close</button>
+              </div>
+            </div>
+          </div>
+        </modal-footer>
+        
+      </modal>
+      <modal #UpdateOrder class="cancel_order_popup">
+        <modal-header>
+          <div class="new_ticket_modal_header_bg b-b-none">
+            <div class="close_icon_div pull-right cursor_pointer" (click)="UpdateOrder.close()" >
+              <span>&#x2715;</span>
+            </div>
+            <div class="default_text_div" >
+              <div class="modal-title font_size_15 padding_left_6">
+                <span>Update Order</span>
+              </div>
+              <div class="font_size_11 m-t-xs sub_text_color padding_left_6">
+                <span>Order Id: {{orderData?.public_order_id}}</span>
+              </div>
+            </div>
+          </div>
+        </modal-header>
+        <modal-content>
+          <div class="row m-l-none m-r-none m-t-lg m-b-lg text-center">
+            <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-offset-3 col-xs-6">
+              <label class="pull-left"> New Status: </label>
+              <span>{{nextStatus[orderData.status]}}</span>
+            </div>
+            <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-offset-3 col-xs-6">
+              <label class="pull-left"> Comment: </label>
+              <input type="text" name="update" [(ngModel)]="updateMsg" >
+            </div>
+          </div>
+        </modal-content>
+        <modal-footer>
+          <div class="add_new_ticket_modal_footer">
+            <div class="row m-t-25px">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <button class="btn btn-dark custom_button_width text-white pull-right" type="button" (click)="updateOrd()">Update Order</button>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <button class="btn cancel_btn custom_button_width pull-left b" type="button" (click)="UpdateOrder.close()">Close</button>
+              </div>
+            </div>
+          </div>
+        </modal-footer>
+        
+      </modal>
+      <modal #addProduct class="cancel_order_popup">
+        <modal-header>
+          <div class="new_ticket_modal_header_bg b-b-none">
+            <div class="close_icon_div pull-right cursor_pointer" (click)="addProduct.close()" >
+              <span>&#x2715;</span>
+            </div>
+            <div class="default_text_div" >
+              <div class="modal-title font_size_15 padding_left_6">
+                <span>Add Product</span>
+              </div>
+              <div class="font_size_11 m-t-xs sub_text_color padding_left_6">
+                <span>Order Id: {{orderData?.public_order_id}}</span>
+              </div>
+            </div>
+          </div>
+        </modal-header>
+        <modal-content>
+          <div class="row m-l-none m-r-none m-t-lg m-b-lg text-center">
+            <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-offset-3 col-xs-6">
+              <label class="pull-left"> Product Id </label>
+              <input type="text" name="product" [(ngModel)]="addP.product_id" >
+            </div>
+            <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-offset-3 col-xs-6">
+              <label class="pull-left"> Quantity </label>
+              <input type="text" name="q" [(ngModel)]="addP.quantity" >
+            </div>
+            <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-offset-3 col-xs-6">
+              <label class="pull-left"> Comment </label>
+              <input type="text" name="comment" [(ngModel)]="addP.comments" >
+            </div>
+          </div>
+        </modal-content>
+        <modal-footer>
+          <div class="add_new_ticket_modal_footer">
+            <div class="row m-t-25px">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <button class="btn btn-dark custom_button_width text-white pull-right" type="button" (click)="addProd()">Add Product</button>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <button class="btn cancel_btn custom_button_width pull-left b" type="button" (click)="addProduct.close()">Close</button>
+              </div>
+            </div>
+          </div>
+        </modal-footer>
+        
+      </modal>
       <app-footer></app-footer>
 </div>

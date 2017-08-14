@@ -1,1 +1,40 @@
 <router-outlet></router-outlet>
+<modal #CancelOrder class="cancel_order_popup" *ngIf="">
+      <modal-header>
+      <div class="new_ticket_modal_header_bg b-b-none">
+        <div class="close_icon_div pull-right cursor_pointer" (click)="CancelOrder.close()" >
+          <span>&#x2715;</span>
+        </div>
+        <div class="default_text_div" >
+          <div class="modal-title font_size_15 padding_left_6">
+             <span>Cancel Order</span>
+          </div>
+          <div class="font_size_11 m-t-xs sub_text_color padding_left_6">
+             <span>Order Id: </span>
+          </div>
+        </div>
+      </div>
+          
+      </modal-header>
+      <modal-content>
+        <div class="row m-l-none m-r-none m-t-lg m-b-lg text-center">
+        <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-offset-3 col-xs-6">
+          <label class="pull-left"> Reason for Cancel Order </label>
+          <input type="text" name="" >
+        </div>
+        </div>
+      </modal-content>
+      <modal-footer>
+        <div class="add_new_ticket_modal_footer">
+          <div class="row m-t-25px">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <button class="btn btn-dark custom_button_width text-white pull-right" type="button">Okay</button>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <button class="btn cancel_btn custom_button_width pull-left b" type="button" (click)="CancelOrder.close()">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </modal-footer>
+        
+      </modal>

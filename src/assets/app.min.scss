@@ -1,6 +1,71 @@
 $header_bg:#02bfd4;
 $header_border_radius:2px;
 $display_inline_block:inline-block;
+$dark_gray_text_color : #7c7c7c;
+$common_round_border_radius:50% !important ;
+$common_btns_width : 128px;
+$common_btns_height : 30px;
+$cancel_btn_bg_color : #edf1f2; 
+
+.btn-dark {
+  color: #fff!important;
+  background-color: #3a3f51;
+  border-color: #3a3f51;
+}
+.btn-dark.active,
+.btn-dark:active,
+.btn-dark:focus,
+.btn-dark:hover,
+.open .dropdown-toggle.btn-dark {
+  color: #fff!important;
+  background-color: #2f3342;
+  border-color: #292d39;
+}
+
+.cancel_btn{
+  width: $common_btns_width;
+  height: $common_btns_height;
+  color: #58666e;
+  outline: none;
+  background: #f6f8f8;
+  padding: 0;
+
+  &:hover , &:active , &:focus{
+    text-decoration: none !important;
+    outline: none !important;
+    background: $cancel_btn_bg_color !important;
+    color: #58666e !important;
+    padding: 0;
+  }
+}
+
+@mixin center_element{
+  /* Firefox */
+  display:-moz-box;
+  -moz-box-orient:horizontal;
+  -moz-box-pack:center;
+  -moz-box-align:center;
+
+  /* Safari and Chrome */
+  display:-webkit-box;
+  -webkit-box-orient:horizontal;
+  -webkit-box-pack:center;
+  -webkit-box-align:center;
+
+  /* W3C */
+  display:box;
+  box-orient:horizontal;
+  box-pack:center;
+  box-align:center;
+
+  /* IE10 -Doesn't work yet! */
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  -ms-box-orient:horizontal;
+}
+
+
 
 body{
   margin: 0;
@@ -17,6 +82,21 @@ body{
 
 label{
   font-weight: 400;
+}
+
+.b{
+  border:thin #eeeeee soild;
+}
+
+.b-b-none{
+  border-bottom:none;
+}
+
+.m-r-none{
+  margin-right:0;
+}
+.m-l-none{
+  margin-left:0;
 }
 
 
@@ -205,6 +285,10 @@ input[type="text"]{
   margin-top: 20px;
 }
 
+.m-t-25px{
+  margin-top:25px;
+}
+
 .m-t-lg{
   margin-top: 30px;
 }
@@ -284,6 +368,13 @@ input[type="text"]{
 
 .product_master_table_height{
   height: 300px !important;
+}
+
+.custom_button_width{
+  width:$common_btns_width;
+  height: $common_btns_height;
+  line-height: 18px;
+  border-radius:2px;
 }
 
 .main_store_div{
@@ -677,6 +768,78 @@ input[type="text"]{
 
 
   .order_details_main_div{
+
+  .cancel_order_popup{
+    .modal-content{
+      width: 400px !important;
+      margin-left: 108.5px !important;
+      box-shadow: none !important;
+      border: none !important;
+      border-radius: 4px !important;
+      .modal-header{
+        padding: 0;
+        border-bottom: none !important;
+        .close{
+          display: none;
+        }
+      }
+
+      .new_ticket_modal_header_bg{
+        background: #edf1f2;
+        border-top-right-radius: 4px;
+        border-top-left-radius: 4px;
+        height: 67px;
+        border-bottom: none;
+        color: $dark_gray_text_color !important;
+        padding: 15px;
+
+        .default_text_div{
+          .reg_form_name{
+            width: 85%;
+          }
+        }
+
+        .sub_text_color{
+          color: #999999;
+        }
+
+        .close_icon_div{
+          width: 32px;
+          height: 32px;
+          border-radius: $common_round_border_radius;
+          background: #dee5e7;
+          position: relative;
+          text-align: center;
+          //right: 6px;
+          top: 5px;
+          @include center_element;
+          span{
+
+            color: #3a3f51;
+            font-size: 17px;
+
+            // left: 7.5px !important;
+          }
+        }
+      }
+
+      .modal-body{
+        padding: 0;
+        p{
+          font-size: 16px;
+        }
+
+      } // modal body close
+      .modal-footer{
+        padding: 0 !important;
+        border-top:thin #dee5e7 solid;
+      }
+      .add_new_ticket_modal_footer{
+        height: 59px;
+      }
+
+    }
+  }
     .order_details_inner_div{
       margin: 15px;
       padding-bottom: 10px;
