@@ -133,8 +133,8 @@ export class OrderDetailComponent implements OnInit {
 
   updateOrd() {
     const data = {
-      order_id: this.updateMsg,
-      comments: this.cancelMsg,
+      order_id: this.orderId,
+      comments: this.updateMsg,
       status: this.nextStatus[this.orderData.status]
     };
     this.apiService.postData(data, 'store/orders/process').subscribe((response: any) => {
